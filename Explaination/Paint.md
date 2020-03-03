@@ -122,6 +122,7 @@ SetBkColor(hdc,RGB(0,0,255));
 ```
 
 效果如图所示：  
+
 ![](Images/setbkcolor.png)
 
  
@@ -138,7 +139,8 @@ Ellipse(hdc,0,0,200,200);
 SelectObject(hdc, CreateHatchBrush(HS_CROSS,RGB(0,0,255)));
 Ellipse(hdc,0,0,200,200);
 ```
-![](Images/solidbrush.png)
+
+![](Images/solidbrush.png) 
 ![](Images/Hatchbrush.png)
 
 
@@ -167,6 +169,7 @@ TextOut(hdc, 240, 41, TEXT("InvertRect"), 10);
 ### 这里给出了三个函数的Demo，下面是示意图。^_^  
 
 &nbsp;
+
 ![](Images/graphoper.png)   
 
 ### `InvertRect`
