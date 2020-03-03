@@ -2,7 +2,7 @@
 //
 
 #include "framework.h"
-#include "WindowsProject1.h"
+#include"WinApiLeaning.h"
 
 #define MAX_LOADSTRING 100
 
@@ -30,7 +30,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // Initialize global strings
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
-    LoadStringW(hInstance, IDC_WINDOWSPROJECT1, szWindowClass, MAX_LOADSTRING);
+    LoadStringW(hInstance, IDC_WINAPILEANING, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
     // Perform application initialization:
@@ -39,7 +39,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
-    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINDOWSPROJECT1));
+    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINAPILEANING));
 
     MSG msg;
 
@@ -91,7 +91,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hInstance      = hInstance;
 
     //设置图标的句柄，LoadIconde
-    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_WINDOWSPROJECT1));
+    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDC_WINAPILEANING));
     //返回鼠标的句柄，第二个参数设置鼠标样式
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
 
@@ -99,7 +99,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
 
     //设置窗口类的菜单
-    wcex.lpszMenuName = MAKEINTRESOURCEW(IDC_WINDOWSPROJECT1);
+    wcex.lpszMenuName = MAKEINTRESOURCEW(IDC_WINAPILEANING);
 
     //设置窗口类的名字
     wcex.lpszClassName  = szWindowClass;

@@ -147,20 +147,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h" />
-    <ClInclude Include="Resource.h" />
-    <ClInclude Include="targetver.h" />
-    <ClInclude Include="WinApiLeaning.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="WinApiLeaning.cpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ResourceCompile Include="WinApiLeaning.rc" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="small.ico" />
     <Image Include="WinApiLeaning.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Codes\framework.h" />
+    <ClInclude Include="..\Codes\Resource.h" />
+    <ClInclude Include="..\Codes\targetver.h" />
+    <ClInclude Include="..\Codes\WinApiLeaning.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="可使用键盘的滑动条.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
