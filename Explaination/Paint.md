@@ -138,8 +138,8 @@ Ellipse(hdc,0,0,200,200);
 SelectObject(hdc, CreateHatchBrush(HS_CROSS,RGB(0,0,255)));
 Ellipse(hdc,0,0,200,200);
 ```
-![通过CreateSolidBrush所画](Images/solidbrush.png)
-![通过CreateHatchBrush所画](Images/Hatchbrush.png)
+![](Images/solidbrush.png)
+![](Images/Hatchbrush.png)
 
 
 # GDI映射模式   
@@ -174,4 +174,3 @@ TextOut(hdc, 240, 41, TEXT("InvertRect"), 10);
 
 ![](Images/InvertRect.png)  
 
-## 随机矩形：
