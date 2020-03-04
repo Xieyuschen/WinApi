@@ -42,7 +42,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="可使用键盘的滑动条.cpp">
+    <ClCompile Include="Demo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

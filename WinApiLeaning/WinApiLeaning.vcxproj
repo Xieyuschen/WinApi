@@ -160,7 +160,8 @@
     <ClInclude Include="..\Codes\WinApiLeaning.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="可使用键盘的滑动条.cpp" />
+    <ClCompile Include="Demo.cpp" />
+    <ClCompile Include="KeyView.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
