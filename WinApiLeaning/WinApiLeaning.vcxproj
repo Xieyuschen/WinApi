@@ -161,7 +161,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Demo.cpp" />
-    <ClCompile Include="KeyView.cpp" />
+    <ClCompile Include="Typer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

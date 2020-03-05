@@ -176,9 +176,10 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
             GetKeyNameText(pmsg[i].lParam, szKeyName,
                 sizeof(szKeyName) / sizeof(TCHAR));
-
             TextOut(hdc, 0, (cyClient / cyChar - 1 - i) * cyChar, szBuffer,
                 wsprintf(szBuffer, szFormat[iType],
+                    //TEXT("%-13s %3d %-15s%c%6u %4d %3s %3s %4s %4s"),--------------------0
+                    //TEXT("%-13s            0x%04X%1s%c %6u %4d %3s %3s %4s %4s")---------1
                     szMessage[pmsg[i].message - WM_KEYFIRST],
                     pmsg[i].wParam,
                     (PTSTR)(iType ? TEXT(" ") : szKeyName),
@@ -191,7 +192,9 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
                     0x20000000 & pmsg[i].lParam ? szYes : szNo,
                     0x40000000 & pmsg[i].lParam ? szDown : szUp,
                     0x80000000 & pmsg[i].lParam ? szUp : szDown));
+
         }
+
         EndPaint(hwnd, &ps);
         return 0;
 

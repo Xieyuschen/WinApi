@@ -45,7 +45,7 @@
     <ClCompile Include="Demo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="KeyView.cpp">
+    <ClCompile Include="Typer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
