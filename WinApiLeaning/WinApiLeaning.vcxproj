@@ -160,7 +160,7 @@
     <ClInclude Include="..\Codes\WinApiLeaning.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="7.Checker3.cpp" />
+    <ClCompile Include="Blokout1.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
