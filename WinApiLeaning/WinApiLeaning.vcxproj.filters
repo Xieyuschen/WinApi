@@ -42,7 +42,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Blokout1.cpp">
+    <ClCompile Include="7.BlokOut2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
