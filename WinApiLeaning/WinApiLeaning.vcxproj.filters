@@ -42,10 +42,7 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Demo.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Typer.cpp">
+    <ClCompile Include="7.Checker1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
