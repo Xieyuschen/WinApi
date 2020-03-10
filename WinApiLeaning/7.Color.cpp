@@ -137,6 +137,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
 
         MoveWindow(hwndRect, 0, 0, cxClient / 2, cyClient, TRUE);
 
+        //这里绘制了窗口控件嘛？
         for (i = 0; i < 3; i++)
         {
             MoveWindow(hwndScroll[i],
@@ -213,12 +214,17 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
         return 0;
 
     
-    //这个case是用来上色的，把这行去掉滚动条就没有颜色了
+        //The WM_CTLCOLORSCROLLBAR message is sent to the parent window of 
+        //a scroll bar control when the control is about to be drawn. 
+        //By responding to this message, the parent window can use the display
+        //context handle to set the background color of the scroll bar control.
+
+        //所以返回一个背景色给窗口告诉父窗口绘制就以这个返回的颜色为背景色
     case WM_CTLCOLORSCROLLBAR:
         i = GetWindowLong((HWND)lParam, GWL_ID);
         return (LRESULT)hBrush[i];
 
-    //设置表示颜色值的数字颜色
+        //和上面的WM_CTLCOLORSCROLLBAR 是一样的，只不过因为不是一个模块所以返回的处理消息是不一样的。
     case WM_CTLCOLORSTATIC:
         i = GetWindowLong((HWND)lParam, GWL_ID);
 
