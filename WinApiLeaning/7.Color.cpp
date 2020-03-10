@@ -108,9 +108,11 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
                 hwnd, (HMENU)(i + 6),
                 hInstance, NULL);
 
+            //设置一个窗口子类
             OldScroll[i] = (WNDPROC)SetWindowLong(hwndScroll[i],
                 GWL_WNDPROC, (LONG)ScrollProc);
 
+            //创建三个画刷红绿蓝用来绘制滚动条
             hBrush[i] = CreateSolidBrush(crPrim[i]);
         }
 
@@ -124,7 +126,14 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
         cxClient = LOWORD(lParam);
         cyClient = HIWORD(lParam);
 
+        //右边显示颜色的矩形
         SetRect(&rcColor, cxClient / 2, 0, cxClient, cyClient);
+
+        //Changes the position and dimensions of the specified window. 
+        //For a top-level window, the position and dimensions are 
+        //relative to the upper-left corner of the screen.
+        //For a child window, they are relative to the upper-left 
+        //corner of the parent window's client area.
 
         MoveWindow(hwndRect, 0, 0, cxClient / 2, cyClient, TRUE);
 
@@ -151,6 +160,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
         return 0;
 
     case WM_VSCROLL:
+        //这个应该是窗口进程的id，对应于CreateWindow指定的id
         i = GetWindowLong((HWND)lParam, GWL_ID);
 
         switch (LOWORD(wParam))
@@ -187,19 +197,28 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
         }
         SetScrollPos(hwndScroll[i], SB_CTL, color[i], TRUE);
         wsprintf(szBuffer, TEXT("%i"), color[i]);
+
+        //把下面显示进度条数值的数字进行修改
         SetWindowText(hwndValue[i], szBuffer);
 
+
+        //删除画笔
         DeleteObject((HBRUSH)
             SetClassLong(hwnd, GCL_HBRBACKGROUND, (LONG)
+                //RGB就是红绿蓝三个颜色混起来，这里把三个进度条的值放到这里然后画出来
                 CreateSolidBrush(RGB(color[0], color[1], color[2]))));
 
+        //使矩形区域无效，重绘无效区域
         InvalidateRect(hwnd, &rcColor, TRUE);
         return 0;
 
+    
+    //这个case是用来上色的，把这行去掉滚动条就没有颜色了
     case WM_CTLCOLORSCROLLBAR:
         i = GetWindowLong((HWND)lParam, GWL_ID);
         return (LRESULT)hBrush[i];
 
+    //设置表示颜色值的数字颜色
     case WM_CTLCOLORSTATIC:
         i = GetWindowLong((HWND)lParam, GWL_ID);
 
@@ -217,6 +236,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
         return 0;
 
     case WM_DESTROY:
+        //释放画笔
         DeleteObject((HBRUSH)
             SetClassLong(hwnd, GCL_HBRBACKGROUND, (LONG)
                 GetStockObject(WHITE_BRUSH)));
@@ -230,7 +250,7 @@ LRESULT CALLBACK WndProc(HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
     return DefWindowProc(hwnd, message, wParam, lParam);
 }
-
+//子窗口过程用于使用Tab键切换窗口焦点
 LRESULT CALLBACK ScrollProc(HWND hwnd, UINT message,
     WPARAM wParam, LPARAM lParam)
 {
